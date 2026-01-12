@@ -1,0 +1,79 @@
+/* Google Fonts - MUST be first */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* Custom Theme Configuration for Tailwind v4 */
+@theme {
+  --color-bg-pure: #000000;
+  --color-acc-blue: #1DA1F2;
+  --color-acc-glow: rgba(29, 161, 242, 0.4);
+  --color-txt-white: #FFFFFF;
+  --color-txt-gray: #B0B0B0;
+  
+  --font-family-heading: 'Orbitron', sans-serif;
+  --font-family-body: 'Poppins', sans-serif;
+}
+
+/* Base layer styles */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+}
+
+/* Custom Cursor Styles */
+#cursor {
+  width: 20px;
+  height: 20px;
+  background: #1DA1F2;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+}
+
+#cursor-follower {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #1DA1F2;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.15s ease-out;
+}
+
+/* Hide cursor on touch devices */
+@media (hover: none) {
+  #cursor,
+  #cursor-follower {
+    display: none;
+  }
+  
+  * {
+    cursor: auto !important;
+  }
+}
+
+/* Desktop: hide default cursor */
+@media (hover: hover) {
+  * {
+    cursor: none;
+  }
+}
